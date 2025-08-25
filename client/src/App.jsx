@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Copy, ExternalLink, Link2 } from "lucide-react";
+import { Copy, ExternalLink } from "lucide-react";
 
 export default function App() {
   const [url, setUrl] = useState("");
@@ -39,35 +39,44 @@ export default function App() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <header className="bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-16 px-6 text-center">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex justify-center mb-6">
-            <Link2 className="w-14 h-14 text-white" />
+    <div className="bg-gray-900 min-h-screen flex flex-col">
+      {/* Header / Navbar */}
+      <header className="absolute inset-x-0 top-0 z-50">
+        <nav
+          aria-label="Global"
+          className="flex items-center justify-between p-6 lg:px-8"
+        >
+          <div className="flex lg:flex-1">
+            <a href="#" className="-m-1.5 p-1.5 flex items-center gap-2">
+              <img
+                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+                alt=""
+                className="h-8 w-auto"
+              />
+              <span className="text-white font-bold text-lg">Gepify</span>
+            </a>
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Shorten. Share. Grow.
-          </h1>
-          <p className="text-lg opacity-90 mb-6">
-            Gepify helps social media users create clean, memorable links that
-            stand out.
-          </p>
-          <a
-            href="#shortener"
-            className="bg-white text-indigo-700 px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-gray-100 transition"
-          >
-            Get Started Free
-          </a>
-        </div>
+
+        </nav>
       </header>
 
-      {/* Shortener Section */}
-      <main
-        id="shortener"
-        className="flex-1 flex items-center justify-center py-16 bg-gray-50 px-4"
-      >
-        <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-lg text-center">
+      {/* Hero Section */}
+      <div className="relative isolate px-6 pt-32 lg:px-8 flex-1">
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        >
+          <div
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72rem]"
+          />
+        </div>
+
+
+        {/* Shortener Form */}
+        <div
+          id="shortener"
+          className="mx-auto max-w-xl bg-white rounded-2xl shadow-lg p-8 text-center"
+        >
           <h2 className="text-2xl font-bold text-gray-800 mb-6">
             Paste your link below
           </h2>
@@ -130,10 +139,19 @@ export default function App() {
             </div>
           )}
         </div>
-      </main>
+
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+        >
+          <div
+            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72rem]"
+          />
+        </div>
+      </div>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-6 text-center text-sm">
+      <footer className="bg-gray-900 border-t border-gray-800 text-gray-400 py-6 text-center text-sm">
         <p>
           🔗 Gepify &copy; {new Date().getFullYear()} — Clean links for social media
         </p>

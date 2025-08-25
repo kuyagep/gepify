@@ -9,14 +9,16 @@ const { Pool } = pkg;
 
 const app = express();              // Create an Express application instance
 const PORT = process.env.PORT;                // Define the port for the server to listen on
-
+const corsOptions = {
+    origin:["http://localhost:5173"],
+}
 // Connect to DB
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
 // Middlewares
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Allowed characters: 0-9 + a-z + A-Z
